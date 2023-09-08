@@ -1,0 +1,1440 @@
+Java programs that I have created by Mr. Namo Awasthi
+
+//Given the name of the customer, X, mobile number M, billing address A, number of items I and cost of each item C
+//write a java program to print the bill.
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+//The main method for the program
+
+class Tester{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+    
+        List<String> inputList = Arrays.stream(inputLine.split(",")).collect(Collectors.toList());
+        String customer = inputList.get(0);
+        long mobileNumber = Long.parseLong(inputList.get(1));
+        String billingAddress = inputList.get(2);
+        int numOfItems = Integer.parseInt(inputList.get(3));
+        float cost = Float.parseFloat(inputList.get(4));
+        Util.printBill(customer, mobileNumber, billingAddress, numOfItems, cost);
+    }
+}
+
+public class Util{
+    public static void printBill(String customer, long mobileNumber, String billAddress, int numOfItems, float cost){
+        float bill = numOfItems * cost;
+        System.out.println("Name: " + customer + " Mobile: " + mobileNumber + " Address: " + billAddress + " Items: " + numOfItems + " Bill Amount: " + bill);
+    }
+}
+
+//Given 2 complex numbers C1 (R1,I1) and C2 (R2,I2), Write a java program to find the sum of C1 and C2. 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+class Tester{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        List<String> inputList = Arrays.stream(inputLine.split(",")).collect(Collectors.toList());
+        Long r1 = Long.parseLong(inputList.get(0));
+        Long i1 = Long.parseLong(inputList.get(1));
+        Long r2 = Long.parseLong(inputList.get(2));
+        Long i2 = Long.parseLong(inputList.get(3));
+        Util.printComplexNumbers(r1,i1,r2,i2);
+    }
+}
+
+class Util{
+    public static void printComplexNumbers(long c1, long l1, long c2, long l2){
+        System.out.println("C1: " + c1 + "+" + l1 + "i" );
+        System.out.println("C2: " + c2 + "+" + l2 + "i");
+    }
+}
+
+//Program to swap the two numbers without using temp variable
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+class Tester{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        List<Integer> inputList = Arrays.stream(inputLine.split(",")).map(Integer::parseInt).collect(Collectors.toList());
+        int num1 = inputList.get(0);
+        int num2 = inputList.get(1);
+
+        Util.swapNumbers(num1, num2);
+    }
+}
+
+class Util{
+    public static void swapNumbers(int n1, int n2){
+        System.out.println("Numbers before swap Num1: " + n1 + " Num2: " + n2);
+        n1 = n1 + n2;
+        n2 = n1 - n2;
+        n1 = n1 - n2;
+        System.out.println("Numbers after swap Num1: " + n1 + " Num2: " + n2);
+    }
+}
+
+//Given a number N, write a program to multiply and divide the number by 2 using bitwise operator.
+
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        sc.close();
+
+        //Use of Bitwise leftshift and ri8 shift operator
+        Util.printdouble(num);
+        Util.printHalf(num);
+    }
+}
+class Util{
+    public static void printdouble(int num){
+        System.out.println(num<<1);
+    }
+    public static void printHalf(int num){
+        System.out.println(num>>1);
+    }
+}
+
+//Program to print number of digits in the given number
+class Tester{
+    public static void main(String[] args){
+        int num = 2345;
+        System.out.println((int)Math.floor(Math.log10(num)+1));
+    }
+}
+
+//Program to print net Salary given B,T,H in input line
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+class Tester{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+
+        List<Integer> inputList = Arrays.stream(inputLine.split(",")).map(Integer::parseInt).collect(Collectors.toList());
+        int B = inputList.get(0);
+        int T = inputList.get(1);
+        int H = inputList.get(2);
+
+        Util.printSalary(B, T, H);
+    }
+}
+
+class Util{
+    public static void printSalary(int B, int T, int H){
+        int G = B + T + H;
+        double N = 0;
+        if(G > 55000){
+            N = (1 - 8.2 * 0.01) * G;
+        }
+        else{
+            N = G;
+        }
+
+        System.out.println("Net Salary: " + N);
+    }
+}
+
+//Given three numbers N1, N2 and N3 wirte a java program to print the greatest of 3.
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+class Tester{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        List<Integer>  inputList = Arrays.stream(inputLine.split(",")).map(Integer::parseInt).collect(Collectors.toList());
+        int n1 = inputList.get(0);
+        int n2 = inputList.get(1);
+        int n3 = inputList.get(2);
+
+        Util.maxOfthreeNum(n1, n2, n3);
+    }
+}
+
+class Util{
+    public static void maxOfthreeNum(int n1, int n2, int n3){
+        int max = 0;
+        if(n1 > n2){
+            if(n1 > n3) max = n1;
+            else max = n3;
+        }
+        else{
+            if(n2 > n3) max = n2;
+            else max = n3;
+        }
+
+        System.out.println("Max: " + max);
+    }
+}
+
+//Given an alphabetic character C. Find the error and correct the java program to find if character is a vowel or not.
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        char C = sc.next().charAt(0);
+        sc.close();
+        if(C == 'a' || C == 'e' || C == 'i' || C == 'o' || C == 'u')
+            System.out.println("Vowel");
+        else System.out.println("Not a vowel");
+    }
+}
+
+//Program to find the ceil of a number
+
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args){
+        
+        Scanner sc = new Scanner(System.in);
+        double num = sc.nextDouble();
+        sc.close();
+        System.out.println(Util.findCeil(num));
+    }
+}
+
+class Util{
+    public static int findCeil(double number){
+        int ceil = 0;
+        if((number - (int)number) > 0){
+            ceil = (int)number + 1;
+        }
+        else ceil = (int)number;
+        return ceil;
+    }
+}
+
+//Given the number of available $5 coins, X, the number of available $1 coins, Y and the amount Z,
+//write a java program to print the minimum number of $5 and $1 coins needed to provide exact change.
+//Print NP if exact change cannot be made. 
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        List<Integer> inputList = Arrays.stream(inputLine.split(",")).map(Integer::parseInt).collect(Collectors.toList());
+        int x = inputList.get(0);
+        int y = inputList.get(1);
+        int z = inputList.get(2);
+        Util.printCoins(x, y, z);
+    }
+}
+
+class Util{
+    public static void printCoins(int x, int y, int z) {
+        int r5coin = 0;
+        int r1coin = 0;
+        if(z%5 == 0){
+            if(x >= z/5){
+                r5coin = z/5;
+                r1coin = 0;
+            }
+            else{
+                r5coin = x;
+                r1coin = z - 5 * x;
+                if(y >= r1coin) System.out.println(r1coin+","+r5coin);
+                else System.out.println("NP");
+            }
+        }
+        else{
+            r5coin = x;
+            r1coin = z - 5 * x;
+            if(y >= r1coin) System.out.println(r1coin+","+r5coin);
+            else System.out.println("NP");
+        }
+    }
+}
+
+Alternate solution(doubtful)
+class Utility {
+	public static String findCoinsNeeded(int onesAvailable, int fivesAvailable, int amountNeeded) {
+		//set the initial value of return as NP
+		String returnValue = "NP";
+		// Find out the maximum number of $5 coins that is needed 
+		int fivesNeeded = amountNeeded / 5;
+		// if required number of $5 coins are not available, use the available $coins
+		if (fivesNeeded >= fivesAvailable) {
+			fivesNeeded = fivesAvailable;
+		}
+		//Find out the remaining number of $1 coin needed
+		int onesNeeded = amountNeeded - (fivesNeeded * 5);
+		// if required number of $1 coins are not available , use the available number
+		// and construct the return string
+		if (onesNeeded <= onesAvailable) {
+			returnValue = onesNeeded+" and "+ fivesNeeded;
+		}
+		return returnValue;
+	}
+}
+
+class Tester {
+
+	public static void main(String[] args) {
+		//Multi-line input
+// 		Scanner in = new Scanner(System.in);
+// 		int fivesAvailable = in.nextInt();
+// 		int onesAvailable = in.nextInt();
+// 		int amountNeeded = in.nextInt();
+// 		String returnValue = CoinUtility.findCoinsNeeded(onesAvailable, fivesAvailable, amountNeeded);
+// 		System.out.println(returnValue);
+		
+		//Single line input
+		Scanner in = new Scanner(System.in);
+		String inputString = in.nextLine();
+		List<String> inputData = Arrays.stream(inputString.split(",")).collect(Collectors.toList());
+		int fivesAvailable = Integer.parseInt(inputData.get(0));
+		int onesAvailable =Integer.parseInt(inputData.get(1));
+		int amountNeeded = Integer.parseInt(inputData.get(2));
+		String returnValue = Utility.findCoinsNeeded(onesAvailable, fivesAvailable, amountNeeded);
+		System.out.println(returnValue);
+	}
+}
+
+//Program to check the sides belong to which kind of Triangle
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+class Tester {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        List<Integer> inputList = Arrays.stream(inputLine.split(",")).map(Integer::parseInt)
+                .collect(Collectors.toList());
+        int X = inputList.get(0);
+        int Y = inputList.get(1);
+        int Z = inputList.get(2);
+        System.out.println(Util.printTriangle(X, Y, Z));
+    }
+}
+
+class Util {
+    public static String printTriangle(int x, int y, int z){
+        if((x < (y+z)) && (y < (x + z)) && (z < (x + y))){
+            if((x == y) && (y == z)) return "Equilateral";
+            else if((x != y) && (y != z) && (x != z)) return "Scalene";
+            else return "Isosceles";
+    }
+    else return "NA";
+    }
+}
+
+//Program to print sum of digits of a number
+import java.util.Scanner;
+class Tester {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.close();
+        System.out.println(Util.sumOfDigits(n));
+        
+    }
+}
+class Util {
+    public static int sumOfDigits(int n){
+        int sum = 0;
+        while(n>0){
+            sum = sum + n%10;
+            n = n/10;
+        }
+        return sum;
+    }
+}
+
+//Program to print factorial of a number
+class Util{
+    public static int printFactorial(int n){
+        int fact = 1;
+        if(n == 0 || n == 1) return fact;
+        else{
+            while(n != 1){
+                fact = fact * n;
+                n--;
+            }
+        }
+        return fact;
+    }
+}
+
+//Program to print the fibonacciSeries of a number
+class Util {
+    public static void printFibonacci(int n) {
+        int a = 0;
+        int b = 1;
+        int x = 0;
+        for (int i = 0; i < n+1; i++) {
+            if (i == 0)
+                System.out.print(a + " ");
+            else if (i == 1)
+                System.out.print(b + " ");
+            else {
+                x = a + b;
+                System.out.print(x + " ");
+                a = b;
+                b = x;
+            }
+        }
+    }
+}
+
+//Given 2 numbers X, Y.
+//Write a Java program to find the X to the power of Y without using java library functions.
+class Util{
+    public static int power(int x, int y){
+        int power = 1;
+        for(int i = 0; i < y; i++){
+            power = power * x;
+        }
+        return power;
+    }
+}
+//Given the number N.
+//Write a Java program to find if the given number is an Armstrong number or not. 
+//Sum of cubes is equal to the number itself
+class Util{
+    public static String chkArmstrong(int num){
+        int temp = num;
+        int cubeSum = 0;
+        while(temp > 0){
+            cubeSum += (int)Math.pow(temp%10,3);
+            temp = temp/10;
+        }
+
+        if(cubeSum == num) return "Armstrong";
+        else return "Not";
+    }
+}
+
+//Program to find gcd of a number using loops
+class Util{
+    public static int findGcd(int n1, int n2){
+        int maxGcd = 0;
+        for(int i = 1; i <= n1 && i<=n2; i++){
+            if((n1%i == 0) && (n2 %i == 0)) maxGcd = i;
+        }
+        return maxGcd;
+
+    }
+}
+
+//Program to print Right angle triangle using star
+class Util{
+    public static void printRtTriangle(int R){
+        for(int i = 0; i < R; i++){
+            for(int j = 0; j <= i; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+//Program to print Triangle pattern using star
+class Util{
+    public static void printPattern(int rows){
+        for(int i = 1; i <= rows; i++){
+            for(int j = 1; j <= rows; j++){
+                if(j > rows - i) System.out.print("* ");
+                else System.out.print("  ");
+
+            }
+            System.out.println();
+        }
+    }
+}
+
+//Program to print star pyramid pattern using star
+class Util{
+    public static void printPyramid(int rows){
+        for(int i = 0; i < rows; i++){
+            for(int j = 0;j < 2*rows-1; j++){
+                if((j == (2*rows - 1)/2 + i) || (j == (2*rows - 1)/2 - i) || (j == (2*rows - 1)/2)){
+                    System.out.print( "*");
+                }
+                else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
+//Program to print number pyramid pattern using star for numbers
+//less than 10
+class Util{
+    public static void printPyramid(int rows){
+        int count = 1;
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < 2*rows - 1; j++){
+                if((j <= (2*rows - 1)/2 + i) && (j >= (2*rows - 1)/2 - i)){
+                    System.out.print(count);
+                }
+                else{
+                    System.out.print(" ");
+                }
+            }
+            count++;
+            System.out.println();
+        }
+    }
+}
+//Program to print number pyramid pattern using star
+//for all numbers
+class Util{
+    public static void printPyramid(int rows){
+        int count = 1;
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < 2*rows - 1; j++){
+                if((j <= (2*rows - 1)/2 + i) && (j >= (2*rows - 1)/2 - i)){
+                    if(i<9){
+                        System.out.print(count + " ");
+                    }
+                    else System.out.print(count);
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            count++;
+            System.out.println();
+        }
+    }
+}
+
+/*printing following pattern
+    ..1..
+    .232.
+    34543
+*/
+class Util{
+    public static void printPyramid(int rows){
+        for(int i = 0; i < rows; i++){
+            int mid = (2 * rows - 1)/2;
+            int width = 0;
+            for(int j = 0; j < 2*rows - 1; j++){
+                if(j <= mid){
+                    width = mid - j;
+                }
+                else width = j - mid;
+                if(j >= mid - i && j <= mid){
+                    System.out.print(2 * i + 1 - width);
+                }
+                else if(j <= mid + i && j>= mid){
+                    System.out.print(2 * i + 1 - width);
+                }
+                else System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+//Given a String data and an integer number key K
+//write a java program to encrypt the data using the key and decrypt the encrypted data using the same key.
+//Key(a,b,c) -> a: uppercase, b: lowercase, c: digits
+class Util{
+    public static String encryptData(String str, String key){
+        String result = "";
+        for(int i = 0; i < str.length(); i++){
+            char item = str.charAt(i);
+            if(Character.isUpperCase(item)){
+                result = result + (char)((int)item - Character.getNumericValue(key.charAt(0)));
+            }
+            else if(Character.isLowerCase(item)){
+                result = result + (char)((int)item - Character.getNumericValue(key.charAt(1)));
+            }
+            else if(Character.isDigit(item)){
+                result = result + (char)((int)item - Character.getNumericValue(key.charAt(2)));
+            }
+            else{
+                result = result + item;
+            }
+        }
+        return result;
+    }
+
+    public static String decryptData(String encrptedStr, String key){
+        String result = "";
+        for(int i = 0; i < encrptedStr.length(); i++){
+            int item = (int)encrptedStr.charAt(i);
+            if(item >= 41 && item <= 57){
+                result = result + (char)(item + Character.getNumericValue(key.charAt(2)));
+            }
+            else if(item >=58 && item <=90){
+                result = result + (char)(item + Character.getNumericValue(key.charAt(0)));
+            }
+            else if(item >= 91 && item <= 122){
+                result = result + (char)(item + Character.getNumericValue(key.charAt(1)));
+            }
+            else{
+                result = result + (char)item;
+            }
+        }
+        return result;
+    }
+}
+
+//Program to return reverse of a number
+class Util{
+    public static int reverseOfNum(int n){
+        String strNum = String.valueOf(n);
+        String rev = "";
+        for(int i = strNum.length()-1; i >= 0; i--){
+            rev = rev + strNum.charAt(i);
+        }
+        int result = Integer.parseInt(rev);
+        return result;
+    }
+}
+
+//Program to check if the number is prime or not
+class Util{
+    public static boolean checkPrime(int n){
+        int count = 0;
+        for(int i = 0; i <= n/2; i++){
+            if(n%(i+1) == 0){
+                count++;
+                if(count > 2) break;
+                else continue;
+            }
+            else continue;
+        }
+        if(count > 2) return false;
+        else return true;
+    }
+}
+
+//Program to remove even digits from a number
+class Util{
+    public static int removeEven(int num){
+        String str = String.valueOf(num);
+        String odds = "";
+        for(int i = 0; i < str.length(); i++){
+            if(Character.getNumericValue(str.charAt(i)) % 2 == 0){
+                continue;
+            }
+            else odds += str.charAt(i);
+        }
+        return Integer.parseInt(odds);
+    }
+}
+
+//Program to check Amicable numbers
+class Util{
+    public static boolean checkAmicable(int n1, int n2){
+        int divSum1 = 0;
+        int divSum2 = 0;
+        for(int i = 0; i < n1/2; i++){
+            if(n1%(i+1) == 0) divSum1 += i+1;
+            else continue;
+        }
+        for(int i = 0; i < n2/2; i++){
+            if(n2%(i+1) == 0) divSum2 += i+1;
+            else continue;
+        }
+        if(divSum2 == n1 && divSum1 == n2) return true;
+        else return false;
+    }
+}
+
+//Program to sum the elements given in inputLine
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+class Util{
+    public static int sumOfNumbers(String inputLine){
+        List<Integer> numList = Arrays.stream(inputLine.split(",")).map(Integer::parseInt).collect(Collectors.toList());
+        int sum = 0;
+        for(int i = 0; i < numList.size(); i++){
+            sum += numList.get(i);
+        }
+        return sum;
+    }
+}
+
+//Program to print the sum of elements in input line
+//Using Array's #Declaration and traversal
+
+class Util{
+    public static int sumNumbers(int[] numbers){
+        int sum = 0;
+        for(int i = 0; i < numbers.length; i++){
+            sum = sum + numbers[i];
+        }
+        return sum;
+    }
+}
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] stringObjectList = inputLine.split(",");
+        int[] numbers = new int[stringObjectList.length];
+        for(int i = 0; i < numbers.length; i++){
+            numbers[i] = Integer.parseInt(stringObjectList[i]);
+        }
+        System.out.println(Util.sumNumbers(numbers));
+    }
+}
+
+//Given an array of numbers A, number of elements N, and number to be searched, S
+//write a java program to check if S is present in A
+//Print True if present, False otherwise 
+
+class Util{
+    public static boolean findNum(int[] numbers, int S){
+        boolean flag = false;
+        for(int i = 0; i < numbers.length; i++){
+            if(numbers[i] == S){
+                flag = true;
+                break;
+            }
+            else continue;
+        }
+        return flag;
+    }
+}
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] inputStringObjects = inputLine.split("#");
+        int n = Integer.parseInt(inputStringObjects[0]);
+        int s = Integer.parseInt(inputStringObjects[1]);
+        int[] numbers = new int[n];
+        inputStringObjects = inputStringObjects[2].split(",");
+        for(int i = 0; i < inputStringObjects.length; i++){
+            numbers[i] = Integer.parseInt(inputStringObjects[i]);
+        }
+        System.out.println(Util.findNum(numbers, s));
+    }
+}
+
+//Given an Array A of N numbers, Write a program to print the number of odd numbers.
+
+class Util{
+    public static int countOdd(int[] numbers){
+        int count = 0;
+        for(int i = 0; i < numbers.length; i++){
+            if(numbers[i]%2 != 0) count++;
+            else continue;
+        }
+        return count;
+    }
+}
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester {
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String inputLine = sc.nextLine();
+    sc.close();
+    int[] numbers = Arrays.stream(inputLine.split(",")).mapToInt(Integer::parseInt).toArray();
+    System.out.println(Util.countOdd(numbers));
+    }
+}
+
+//Given an array A of 0s and 1s representing the state of flipflops
+//write a program to segregate 1s to the left side of the array and 0s to the right side of the array.
+
+class Util{
+    public static int[] segregateFF(int[] flipflops){
+        int leftIndex = 0;
+        for(int i = 0; i < flipflops.length; i++){
+            if(flipflops[i] == 1){
+                int temp = flipflops[i];
+                flipflops[i] = flipflops[leftIndex];
+                flipflops[leftIndex] = temp;
+                leftIndex++;
+            }
+        }
+        return flipflops;
+    }
+}
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        int[] flipflops = Arrays.stream(inputLine.split(",")).mapToInt(Integer::parseInt).toArray();
+        flipflops = Util.segregateFF(flipflops);
+        System.out.println(Arrays.toString(Util.segregateFF(flipflops)));
+    }
+}
+
+//Given a new element E, index I and array of numbers A of size N
+//write a program to insert the element E after the index I. 
+
+class Util{
+    public static int[] insertNum( int e, int ind, int[] arr){
+        int[] arrN = new int[arr.length+1];
+        for(int i = 0; i < arrN.length; i++){
+            if(i <= ind) arrN[i] = arr[i];
+            else if(i == ind + 1) arrN[i] = e;
+            else arrN[i] = arr[i-1];
+        }
+        return arrN;
+    }
+}
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] inputStringsArray = inputLine.split("#");
+        int num = Integer.parseInt(inputStringsArray[0]);
+        int ind = Integer.parseInt(inputStringsArray[1]);
+        int[] arr = Arrays.stream(inputStringsArray[2].split(",")).mapToInt(Integer::parseInt).toArray();
+        arr = Util.insertNum(num, ind, arr);
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+//Alternate method
+
+class Util{
+    public static int[] insertNum( int e, int ind, int[] arr){
+        int[] arrN = new int[arr.length+1];
+        int arrIndex = 0;
+        int arrnIndex = 0;
+        while(arrIndex <= ind){
+            arrN[arrnIndex] = arr[arrIndex];
+            arrIndex++;
+            arrnIndex++;
+        }
+        arrN[arrnIndex++] = e;
+        while(arrIndex < arr.length){
+            arrN[arrnIndex] = arr[arrIndex];
+            arrnIndex++;
+            arrIndex++;
+        }
+        return arrN;
+    }
+}
+
+//Given a matrix M x N, write a program to find the max sum of elements of diagonal path.
+class Util{
+    public static int maxDiagonalSum(int[][] arr){
+        int maxSum = 0;
+        for(int i = 0; i < arr.length; i++){
+            int diagonalSum = 0;
+            int x = 0;
+            int y = i;
+            for(int j = i; j < arr.length; j++){
+                diagonalSum = diagonalSum + arr[x][y];
+                x++;
+                y++;
+            }
+            if(diagonalSum > maxSum) maxSum = diagonalSum;
+        }
+        for(int i = 0; i < arr.length; i++){
+            int diagonalSum = 0;
+            int y = 0;
+            int x = i;
+            for(int j = i; j < arr.length; j++){
+                diagonalSum = diagonalSum + arr[x][y];
+                x++;
+                y++;
+            }
+            if(diagonalSum > maxSum) maxSum = diagonalSum;
+        }
+        return maxSum;
+    }
+}
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Tester {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] inputStringList = inputLine.split("#");
+        int[][] arr = new int[inputStringList.length][inputStringList.length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Arrays.stream(inputStringList[i].split(",")).mapToInt(Integer::parseInt).toArray();
+        }
+        System.out.println(Util.maxDiagonalSum(arr));
+    }
+}
+
+//Given 2 matrices M1, M2 of size N x N, write a program to find the product.
+
+class Util{
+    public static int[][] matrixMultiplier(int[][] m1, int[][] m2){
+        int[][] m3 = new int[m1.length][m1.length];
+        for(int i = 0; i < m3.length; i++){
+            for(int j = 0; j < m3.length; j++){
+                int sum = 0;
+                for(int k = 0; k < m3.length; k++){
+                    sum += m1[i][k] * m2[k][j];
+                }
+                m3[i][j] = sum;
+            }
+        }
+        return m3;
+    }
+}
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] inputStringObjects = inputLine.split("@");
+        int n = Integer.parseInt(inputStringObjects[0]);
+        int[][] m1 = new int[n][n];
+        int[][] m2 = new int[n][n];
+        Object[] temp1 = new Object[n];
+        Object[] temp2 = new Object[n];
+        temp1 = Arrays.stream(inputStringObjects[1].split("#")).toArray();
+        temp2 = Arrays.stream(inputStringObjects[2].split("#")).toArray();
+        
+        for(int j = 0; j < n; j++){
+            m1[j] = Arrays.stream(temp1[j].toString().split(",")).mapToInt(Integer::parseInt).toArray();
+            m2[j] = Arrays.stream(temp2[j].toString().split(",")).mapToInt(Integer::parseInt).toArray();
+        }
+        for(int i = 0; i < n; i++){
+            System.out.println(Arrays.toString(m1[i]) + " " + Arrays.toString(m2[i]));
+        }
+        int[][] z = Util.matrixMultiplier(m1, m2);
+        for(int i = 0; i < n; i++){
+            System.out.println(Arrays.toString(z[i]));
+        }
+    }
+}
+
+//Given 2 arrays of numbers A1, A2 of size N
+//write a program to merge A1 and A2 such that, every alternate element is from same array.
+
+class Util{
+    public static int[] mergeArrays(int[] arr1, int[] arr2){
+        int[] arr = new int[arr1.length * 2];
+        int index1 = 0;
+        int index2 = 1;
+        for(int i = 0; i < arr1.length; i++){
+            arr[index1] = arr1[i];
+            arr[index2] = arr2[i];
+            index1 += 2;
+            index2 += 2;
+        }
+        return arr;
+    }
+}
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] inputStringList = inputLine.split("#");
+        int[] arr1 = Arrays.stream(inputStringList[0].split(",")).mapToInt(Integer::parseInt).toArray();
+        int[] arr2 = Arrays.stream(inputStringList[1].split(",")).mapToInt(Integer::parseInt).toArray();
+        System.out.println(Arrays.toString(arr1) + "\n" + Arrays.toString(arr2));
+        System.out.println(Arrays.toString(Util.mergeArrays(arr1, arr2)));
+    }
+}
+
+//Given an array A of N numbers
+//write a program to reverse the array.
+
+class Util{
+    public static int[] reverse(int[] arr){
+        int[] brr = new int[arr.length];
+        for(int i = 0; i < arr.length; i++){
+            brr[arr.length-i-1] = arr[i];
+        }
+        return brr;
+    }
+}
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        int[] arr = Arrays.stream(inputLine.split(",")).mapToInt(Integer::parseInt).toArray();
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(Util.reverse(arr)));
+    }
+}
+
+//Given an array A of N characters {a,b}
+//write a program to find the maximum length of contiguous subarray having equal number of a and b.
+
+class Util{
+    public static int findSubarray(char[] arr){
+        int maxLength = 0;
+        int counter = 0;
+        int[] tempArray = new int[2 * arr.length + 1];
+        Arrays.fill(tempArray, -2);
+        tempArray[arr.length] = -1;
+        for(int i = 0; i < arr.length; i++){
+            counter = counter + (arr[i] == 'b'? -1:1);
+            if(tempArray[counter + arr.length] >= -1){
+                maxLength = Math.max(maxLength, i - tempArray[arr.length + counter]);
+            }
+            else{
+                tempArray[arr.length + counter] = i;
+            }
+        }
+        return maxLength;
+    }
+}
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        char[] charArray = inputLine.toCharArray();
+        System.out.println(Util.findSubarray(charArray));
+    }
+}
+
+//Given an array A of N numbers
+//write a program to find the longest mountain subarray.
+
+class Util{
+    public static int findLongestMountain(int[] arr){
+        int maxMountain = 0;
+        for(int i = 0; i < arr.length; i++){
+            int base1 = i;
+            int base2 = 0;
+            int x = i;
+            int y = i+1;
+
+            while(y < arr.length && (arr[x] < arr[y])){
+                x++;
+                y++;
+            }
+
+            while(y < arr.length && (arr[x] > arr[y])){
+                base2 = y;
+                x++;
+                y++;
+            }
+
+            maxMountain = Math.max(base2 - base1 + 1, maxMountain);
+
+        }
+        return maxMountain;
+    }
+}
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        int[] arr = Arrays.stream(inputLine.split(","))
+            .mapToInt(Integer::parseInt).toArray();
+        System.out.println(Util.findLongestMountain(arr));
+    }
+}
+
+//Program to find number of common element in 2 arrays
+class Util{
+    public static int countCommonElements(int[] arr1, int[] arr2){
+        int count = 0;
+        for(int i = 0; i < arr1.length; i++){
+            for(int j = 0; j < arr2.length; j++){
+                if(arr1[i] == arr2[j]){
+                    count++;
+                    break;
+                }
+                else continue;
+            }
+        }
+        return count;
+    }
+}
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] inputArrays = inputLine.split("#");
+        int[] arr1 = Arrays.stream(inputArrays[0].split(","))
+            .mapToInt(Integer::parseInt).toArray();
+        int[] arr2 = Arrays.stream(inputArrays[1].split(","))
+            .mapToInt(Integer::parseInt).toArray();
+        System.out.println(Util.countCommonElements(arr1, arr2));
+    }
+}
+
+//Finding minimum sum of n-1 elements
+
+class Util {
+    public static int sumOfElements(int[] arr) {
+        int sum = 0;
+        int minSum = 0;
+        for(int i = 0; i < arr.length; i++){
+            sum += arr[i];
+        }
+        minSum = sum;
+        for(int i = 0; i < arr.length; i++){
+            if(sum - arr[i] < minSum){
+                minSum = sum - arr[i];
+            }
+            else continue;
+        }
+        return minSum;
+    }
+}
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        int[] arr = Arrays.stream(inputLine.split(",")).mapToInt(Integer::parseInt).toArray();
+        System.out.println(Util.sumOfElements(arr));
+    }
+
+//inserting an element e at index i in array arr
+
+class Util{
+    public static int[] insertion(int[] arr, int e, int index){
+        int[] array = new int[arr.length + 1];
+        int i = 0;
+        while(i < index){
+            array[i] = arr[i];
+            i++;
+        }
+        array[i] = e;
+        i++;
+        while(i < array.length){
+            array[i] = arr[i-1];
+            i++;
+        }
+        return array;
+    }
+}
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] inputStringArray = inputLine.split("#");
+        int[] arr = Arrays.stream(inputStringArray[0].split(",")).mapToInt(Integer::parseInt).toArray();
+        int e = Integer.parseInt(inputStringArray[2]);
+        int index = Integer.parseInt(inputStringArray[1]);
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(Util.insertion(arr, e, index)));
+    }
+}
+
+//Checking if a number and its double exists in a given array
+
+class Util{
+    public static boolean checkDoubleExists(int[] arr){
+        boolean flag = false;
+        for(int i = 0; i < arr.length; i++){
+            for(int j=0; j <= arr.length -j-1; j++){
+                if(arr[j] == 2 * arr[i]){
+                    flag = true;
+                    break;
+                }
+                else if(arr[i] == 2 * arr[j]){
+                    flag = true;
+                    break;
+                }
+                else continue;
+            }
+        }
+        return flag;
+    }
+}
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        int[] arr = Arrays.stream(inputLine.split(",")).mapToInt(Integer::parseInt).toArray();
+        System.out.println(Util.checkDoubleExists(arr));
+    }
+}
+
+//program to remove duplicate elements from the given array
+
+class Util{
+    public static int[] removeDuplicate(int[] arr){
+        int[] array = new int[arr.length];
+        int index = 0;
+        for(int i = 0; i < arr.length; i++){
+            boolean flag = false;
+            for(int j = 0; j <= index; j++){
+                if(arr[i] == array[j]){
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag == false){
+                array[index] = arr[i];
+                index++;
+            }
+        }
+        int[] retArray = new int[index];
+        for(int i = 0; i < index; i++) retArray[i] = array[i];
+        return retArray;
+    }
+}
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        int[] arr = Arrays.stream(inputLine.split(",")).mapToInt(Integer::parseInt).toArray();
+        System.out.println(Arrays.toString(Util.removeDuplicate(arr)));
+    }
+}
+
+//finding max difference b/w 2 elements of the given array
+
+class Util{
+    public static int maxDifference(int[] arr){
+        int maxDiff = 0;
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr.length; j++){
+                if(Math.abs(arr[i] - arr[j]) > maxDiff){
+                    maxDiff = arr[i] - arr[j];
+                }
+                else continue;
+            }
+        }
+        return maxDiff;
+    }
+}
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        int[] arr = Arrays.stream(inputLine.split(",")).mapToInt(Integer::parseInt).toArray();
+        System.out.println(Util.maxDifference(arr));
+    }
+}
+
+//Given an array A, rotate the array to the right by k steps, where k is non-negative.
+
+class Util{
+    public static int[] rotateArray(int[] arr, int k){
+        int[] temp = new int[arr.length];
+        for(int i = 0; i < k; i++){
+            temp[i] = arr[arr.length - k + i];
+        }
+        for(int i = 0; i < arr.length - k; i++){
+            temp[i+k] = arr[i];
+        }
+        return temp;
+    }
+}
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] inputStringObjects = inputLine.split("#");
+        int[] arr = Arrays.stream(inputStringObjects[0].split(",")).mapToInt(Integer::parseInt).toArray();
+        int k = Integer.parseInt(inputStringObjects[1]);
+        System.out.println(Arrays.toString(Util.rotateArray(arr, k)));
+    }
+}
+
+//LongestSubsequence of Rollnumbers
+class Util{
+    public static int longestSubsequence(int[] arr){
+        int maxLength = 0;
+        for(int i = 0; i < arr.length; i++){
+            int x = i;
+            int y = i+1;
+            int length = 0;
+            while(y < arr.length && arr[y] == arr[x] + 1){
+                length++;
+                x++;
+                y++;
+            }
+            length++;
+            if(length > maxLength) maxLength = length;
+        }
+        return maxLength;
+    }
+}
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        int[] arr = Arrays.stream(inputLine.split(", ")).mapToInt(Integer::parseInt).toArray();
+        Arrays.sort(arr);
+        System.out.println(Util.longestSubsequence(arr));
+    }
+}
+
+//Bubble sort
+
+class Util{
+    public static int[] bubbleSort(int[] arr){
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 1; j < arr.length; j++){
+                if(arr[j - 1] > arr[j]){
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j-1] = temp;
+                }
+                else continue;
+            }
+        }
+        return arr;
+    }
+}
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        int[] arr = Arrays.stream(inputLine.split(",")).mapToInt(Integer::parseInt).toArray();
+        System.out.println(Arrays.toString(Util.bubbleSort(arr)));
+    }
+}
+
+//Binary Search
+
+class Util {
+    public static boolean binarySearch(int[] arr, int e) {
+        int low = 0;
+        int high = arr.length - 1;
+        int mid = 0;
+        boolean flag = false;
+        while (low <= high) {
+            mid = (int) Math.floor((low + high) / 2.0);
+            if (arr[mid] == e){
+                flag = true;
+                break;
+            }
+            else if (arr[mid] < e) {
+                low = mid + 1;
+                continue;
+            } else {
+                high = mid - 1;
+                continue;
+            }
+        }
+        return flag;
+    }
+}
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Tester{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        sc.close();
+        String[] inputStringObjects = inputLine.split("#");
+        int[] arr = Arrays.stream(inputStringObjects[0].split(",")).mapToInt(Integer::parseInt).toArray();
+        Arrays.sort(arr);
+        int e = Integer.parseInt(inputStringObjects[1]);
+        System.out.println(Util.binarySearch(arr, e));
+    }
+}
